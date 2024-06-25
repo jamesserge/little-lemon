@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -50,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.runtime.livedata)
     val navversion = "2.7.7"
 
     implementation(libs.androidx.core.ktx)
@@ -69,5 +72,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$navversion")
-
+    implementation ("io.ktor:ktor-client-android:2.1.3")
+    implementation ("io.ktor:ktor-client-content-negotiation:2.1.3")
+    implementation ("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
+    implementation ("androidx.room:room-runtime:2.5.0")
+    kapt ("androidx.room:room-compiler:2.5.0")
+    implementation ("androidx.room:room-ktx:2.5.0")
+    //Troubleshooting
+    implementation ("io.ktor:ktor-client-serialization:2.0.0")
+    implementation("io.coil-kt:coil-compose:1.4.0")
 }

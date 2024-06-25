@@ -8,12 +8,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
 @Composable
-fun Navigation(navController: NavHostController, sharedPreferences: SharedPreferences) {
+fun Navigation(navController: NavHostController, sharedPreferences: SharedPreferences, menuViewModel: MenuViewModel) {
     val userRegistered = remember { sharedPreferences.getBoolean("user_registered", false)}
     val startDestination = if (userRegistered) "home" else "onboarding"
 
     NavHost(navController = navController, startDestination =  startDestination) {
-        composable("home") {Home(navController, sharedPreferences)}
+        composable("home") {Home(navController, sharedPreferences, menuViewModel)}
         composable("profile") {Profile(navController, sharedPreferences)}
         composable("onboarding") { Onboarding(navController, sharedPreferences)}
     }
