@@ -40,6 +40,7 @@ fun Onboarding(navController: NavHostController, sharedPreferences: SharedPrefer
 
     var showAlertDialog = remember { mutableStateOf(false) }
     var showSuccessDialog = remember { mutableStateOf(false) }
+    val emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
 
     Column(
         modifier = Modifier
@@ -105,7 +106,7 @@ fun Onboarding(navController: NavHostController, sharedPreferences: SharedPrefer
             Button(
                 colors = ButtonDefaults.buttonColors(Color(0xFFF4CE14)),
                 onClick = {
-                    if (firstNameState.value.isBlank() || lastNameState.value.isBlank() || emailState.value.isBlank()) {
+                    if (firstNameState.value.isBlank() || lastNameState.value.isBlank() || emailState.value.isBlank() || !emailRegex.matches(emailState.value)) {
                         showAlertDialog.value = true
                     } else {
                         sharedPreferences.edit().apply() {
@@ -134,8 +135,8 @@ fun Onboarding(navController: NavHostController, sharedPreferences: SharedPrefer
                 Text(text = "OK")
             }
             },
-            title = { Text(text = "Registration unsuccessful")},
-            text = { Text(text = "Registration unsuccessful. Please enter all data.") }
+            title = { Text(text = "Registration unsuccessful. Valid input is required.")},
+            text = { Text(text = "") }
         )
     }
 
