@@ -1,7 +1,3 @@
-## Wireframe
-![Wireframe](https://github.com/jamesserge/little-lemon/blob/main/mywireframe.jpg)
-
-
 ## How to run this app
 - Clone
 - Import to your IDE (Android Studio)
@@ -9,3 +5,5 @@
 - Run the app
 
 Thank You!
+## Wireframe
+![Wireframe](https://github.com/jamesserge/little-lemon/blob/main/mywireframe.jpg)
