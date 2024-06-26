@@ -153,7 +153,7 @@ fun Onboarding(navController: NavHostController, sharedPreferences: SharedPrefer
                 Text(text = "OK")
             } },
             title = { Text(text = "Registration successful!")},
-            text = { Text(text = "Registration successful!") }
+            text = { Text(text = "") }
         )
     }
 }
